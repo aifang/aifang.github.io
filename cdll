@@ -1,0 +1,12 @@
+“一个页面渲染的过程
+<!-- [!important]>>[inlineStyle]>>id>>className>>tagName -->
+<input id='id' class='class' type='checkbox' />
+第一个标签选择器：input{display: block;}
+第二个id选择器：#id{margin: 0 auto;}
+第三个class选择器：.class{padding: .5em 10px;}
+第四个属性选择器：[type]{text-align: center;}
+第五个星选择器：*{font-family: 'MS 宋体';}
+
+margin:0 auto;是用来做对外居中的，有个前提是元素必须是块元素（block或inline-block，不能是inline的行内元素）；
+内部居中就用text-align：center；
+margin属性可以有auto和负值（比如-2em），而padding不能为负值或auto（因为这是浏览器不能在元素内部计算出来的）
