@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
     <link rel="stylesheet" href="http://js.arcgis.com/3.14/esri/css/esri.css">
-    <script src="http://js.arcgis.com/3.14/"></script>
+    <script src="http://js.arcgis.com/3.14/dojo/dojo.js"></script>
     <!--<script src="http://127.0.0.1/arcgis_js_api/library/3.14/3.14/dojo/dojo.js"></script>-->
 
     <title>Aifang.GitHub.io</title>
@@ -59,7 +59,7 @@
         <div id="map"></div>
         <script>
             require(["esri/map", "dojo/domReady!"], function (Map) {
-                var map = new Map("map", {
+                var map = new esri.Map("map", {
                     center: [-118, 34.5],
                     zoom: 8,
                     basemap: "topo"
