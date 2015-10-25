@@ -9,12 +9,14 @@
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
     <link rel="stylesheet" href="http://js.arcgis.com/3.14/esri/css/esri.css">
     <script src="http://js.arcgis.com/3.14/dojo/dojo.js"></script>
-    <!--<script src="http://127.0.0.1/arcgis_js_api/library/3.14/3.14/dojo/dojo.js"></script>-->
+    <!--<link rel="stylesheet" type="text/css" href="http://127.0.0.1/arcgis_js_api/library/3.14/3.14/dijit/themes/tundra/tundra.css" />
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1/arcgis_js_api/library/3.14/3.14/esri/css/esri.css" />
+    <script type="text/javascript" src="http://127.0.0.1/arcgis_js_api/library/3.14/3.14/init.js"></script>-->
 
     <title>Aifang.GitHub.io</title>
 </head>
 
-<body>    
+<body>
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
@@ -48,28 +50,39 @@
             <li class=""></li>
         </ol>
         <script type="text/javascript">
-            var _todo=dojo.byId('txt1');
-            dojo.connect(_todo,'keyup',function(e){
-                if (e.which==13) {
-                    var _todoList=dojo.byId('list1');
+            var _todo = dojo.byId('txt1');
+            dojo.connect(_todo, 'keyup', function (e) {
+                if (e.which == 13) {
+                    var _todoList = dojo.byId('list1');
                     _todoList
                 }
             })
         </script>
-        <div id="map"></div>
-        <script>
-            require(["esri/map", "dojo/domReady!"], function (Map) {
-                var map = new esri.Map("map", {
-                    center: [-118, 34.5],
-                    zoom: 8,
-                    basemap: "topo"
+        <div id="map">
+            <script>
+                require(["esri/map", "dojo/domReady!", "esri/dijit/Scalebar"], function (Map, Scalebar) {
+                    var map = new esri.Map("map", {
+                        center: [-118, 34.5],
+                        zoom: 8,
+                        basemap: "topo",
+                        nav: true,
+                        slider: true,
+                        logo: false,
+                        showAttribution: false
+                    });
+                    map.hideZoomSlider();
+                    var scalebar = new esri.dijit.Scalebar({
+                        map: map,
+                        scalebarUnit: "dual",
+                        attachTo: "top - right"
+                    });
                 });
-            });
-        </script>
+            </script>
+        </div>
     </div>
 
     <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer" >
+    <div id="footer_wrap" class="outer">
         <footer class="inner">
             <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
         </footer>
